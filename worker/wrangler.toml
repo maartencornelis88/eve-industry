@@ -1,24 +1,25 @@
 name              = "eve-industry-worker"
 main              = "src/index.ts"
 compatibility_date = "2024-09-23"
+workers_dev       = true
 
 [[routes]]
-pattern   = "adurrant.com/*"
-zone_name = "adurrant.com"
+pattern   = "adurrant.eu/*"
+zone_name = "adurrant.eu"
 
 [[routes]]
-pattern   = "adurrant.com/eve/*"
-zone_name = "adurrant.com"
+pattern   = "adurrant.eu/eve/*"
+zone_name = "adurrant.eu"
 
 [[d1_databases]]
 binding       = "DB"
 database_name = "eve-industry"
-database_id   = "YOUR_D1_DATABASE_ID_HERE"
+database_id   = "e3b40eb7-74e6-421f-bc73-920faf33963c"
 
 [[kv_namespaces]]
 binding    = "TOKEN_STORE"
-id         = "YOUR_KV_NAMESPACE_ID_HERE"
-preview_id = "YOUR_KV_NAMESPACE_PREVIEW_ID_HERE"
+id         = "a4e7c465b07d4a46861cc9d68f63f5f0"
+preview_id = "b02f6164853c4afc8cb878b1d74877cd"
 
 [triggers]
 crons = ["0 5 * * *"]
