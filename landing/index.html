@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Limineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #190f0b;
+      --amber:  #d68529;
+      --teal:   #18b5dc;
+      --text:   #f0e8e0;
+      --muted:  #8a7060;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Subtle amber grid texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(214, 133, 41, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(214, 133, 41, 0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Ambient glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(ellipse, rgba(214, 133, 41, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid rgba(214, 133, 41, 0.12);
+    }
+
+    .logo {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    main {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .subtext {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 48ch;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* Glass-teal button */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--bg);
+      background: var(--teal);
+      box-shadow:
+        0 0 0 1px rgba(24, 181, 220, 0.4),
+        0 4px 24px rgba(24, 181, 220, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .cta:hover {
+      box-shadow:
+        0 0 0 1px rgba(24, 181, 220, 0.6),
+        0 6px 32px rgba(24, 181, 220, 0.35),
+        inset 0 1px 0 rgba(255,255,255,0.2);
+      transform: translateY(-1px);
+    }
+    .cta:active { transform: translateY(0); }
+
+    .cta-arrow { font-size: 1.1em; }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 1rem 1.25rem; }
+      main { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="logo">Limineer</span>
+    <a class="nav-link" href="/eve">EVE Tool</a>
+  </nav>
+
+  <main>
+    <p class="eyebrow">Venture Building &amp; Industry</p>
+    <h1>Built in the <em>in-between.</em></h1>
+    <p class="subtext">
+      We discover, design, and build new business opportunities in the spaces most
+      organisations leave unexplored. Placeholder content — more coming soon.
+    </p>
+    <a class="cta" href="/eve">
+      Open EVE Industry Tool
+      <span class="cta-arrow">→</span>
+    </a>
+  </main>
+
+  <footer>
+    &copy; 2026 Limineer &mdash; limineer.com
+  </footer>
+</body>
+</html>
